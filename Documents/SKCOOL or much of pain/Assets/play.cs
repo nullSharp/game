@@ -15,21 +15,11 @@ public class play : MonoBehaviour {
 	void Update () {
         if (person.life < 1 || person.died)
         {
-                rigidbody2D.gravityScale = 0;
-                transform.position = XY.position;
-                f = true;
+            transform.position = XY.position;
+            rigidbody2D.gravityScale = 0;
         }
        
-		if(rigidbody2D.gravityScale == 2 && f && person.life > 0)
-        {
-            StartCoroutine(Timer());
-        }
 	}
-    IEnumerator Timer()
-    {
-        f = false;
-        yield return new WaitForSeconds(0.8f);
-        gameObject.tag = "nothing";
-    }
+  
     
 }

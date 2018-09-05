@@ -224,6 +224,7 @@
     <Compile Include="Assets\achkitupastiy.cs" />
     <Compile Include="Assets\animate.cs" />
     <Compile Include="Assets\blocking.cs" />
+    <Compile Include="Assets\bomb.cs" />
     <Compile Include="Assets\bullet.cs" />
     <Compile Include="Assets\camera.cs" />
     <Compile Include="Assets\camerascript.cs" />
@@ -251,6 +252,7 @@
     <Compile Include="Assets\platform.cs" />
     <Compile Include="Assets\play.cs" />
     <Compile Include="Assets\rightwall.cs" />
+    <Compile Include="Assets\rocket.cs" />
     <Compile Include="Assets\Rotating.cs" />
     <Compile Include="Assets\shot.cs" />
     <Compile Include="Assets\shotgo.cs" />
