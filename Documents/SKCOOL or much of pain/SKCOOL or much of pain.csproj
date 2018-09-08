@@ -225,6 +225,7 @@
     <Compile Include="Assets\animate.cs" />
     <Compile Include="Assets\blocking.cs" />
     <Compile Include="Assets\bomb.cs" />
+    <Compile Include="Assets\boss.cs" />
     <Compile Include="Assets\bullet.cs" />
     <Compile Include="Assets\camera.cs" />
     <Compile Include="Assets\camerascript.cs" />

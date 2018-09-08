@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114156805231546102}
   m_Layer: 0
   m_Name: bobm
-  m_TagString: Death
+  m_TagString: minuslife
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
