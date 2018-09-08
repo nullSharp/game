@@ -15,7 +15,7 @@ public class person : MonoBehaviour {
     [SerializeField] private SpriteRenderer sprite;
     public static bool died = false;
     public static float achki_tupastiy;
-    public static float life = 4f;
+    public static float life = 4999999999999999999999999f;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject diescreen;
     private float speed = 12f;
