@@ -47,7 +47,7 @@ public class mastir : MonoBehaviour {
         }
     if(life < 1)
         {
-            person.mana += 0.2f;
+            person.mana += 1f;
             person.achki_tupastiy += 2f + Manager.achkitupastiy_per_second;
             Destroy(gameObject);
         }
@@ -72,17 +72,9 @@ public class mastir : MonoBehaviour {
     {
         f = false;
         sprite.color = Color.red;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.03f);
         sprite.color = Color.white;
         f = true;
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "bullet" && f)
-        {
-            life--;
-            StartCoroutine(Timeri());
-        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

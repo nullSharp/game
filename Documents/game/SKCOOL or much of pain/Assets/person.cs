@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class person : MonoBehaviour {
+    private bool run = false;
+   [SerializeField]private float energy = 100f;
+    public GameObject filter;
+    private bool slowly = false;
     public int direction;
+    private bool c = true;
     public GameObject pointOfBullet;
     private float groundRadius = 0.15f;
     public LayerMask whatIsGround;
@@ -11,11 +16,11 @@ public class person : MonoBehaviour {
     public int typeofweapon = 1;
     public bool canShoot = true;
     public GameObject bullet;
-    public static float mana = 50;
+    public static float mana = 5;
     [SerializeField] private SpriteRenderer sprite;
     public static bool died = false;
     public static float achki_tupastiy;
-    public static float life = 4999999999999999999999999f;
+    public static float life = 4;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject diescreen;
     private float speed = 12f;
@@ -23,6 +28,18 @@ public class person : MonoBehaviour {
    [SerializeField]public static bool canMove = true;
     private bool canTakeDamage = true;
     Rigidbody2D rigidbody2D = new Rigidbody2D();
+    float player_energy
+    {
+        get
+        {
+            return energy;
+        }
+        set
+        {
+            energy = value;
+        }
+    }
+
     void AnimationOfDamage()
     {
     if(canTakeDamage)
@@ -32,6 +49,11 @@ public class person : MonoBehaviour {
     }
     void Checks()
     {
+        if (life == 1 && c) {
+        speed = speed / 2; filter.SetActive(true);
+            c = false;
+            slowly = true;
+        }
     if(life < 1)
         {
             life = 5;
@@ -61,7 +83,7 @@ public class person : MonoBehaviour {
         }
         if(Input.GetKeyDown(KeyCode.Q)&& mana >= 4 && isGround)
         {
-            rigidbody2D.AddForce(Vector2.up * 20, ForceMode2D.Impulse);
+            rigidbody2D.AddForce(Vector2.up * 35, ForceMode2D.Impulse);
             mana -= 4;
             isGround = false;
         }
@@ -90,10 +112,16 @@ public class person : MonoBehaviour {
     }
     void Die()
     {
+        if (slowly)
+        {
+            filter.SetActive(false);
+            speed = speed * 2;
+        }
             died = true;
         diescreen.SetActive(true);
         canMove = false;
         StartCoroutine(Timer());
+        slowly = false;
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -105,11 +133,13 @@ public class person : MonoBehaviour {
     IEnumerator Timer()
     {
         yield return new WaitForSeconds(3);
+      
         diescreen.SetActive(false);
         transform.position = spawnPoint.position;
         life = 4;
         canMove = true;
         died = false;
+        c = true;
     }
     IEnumerator Timerr()
     {
