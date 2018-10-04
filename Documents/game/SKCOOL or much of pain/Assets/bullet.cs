@@ -18,7 +18,15 @@ public class bullet : MonoBehaviour {
         if(collision.gameObject.tag != "Player" && collision.gameObject.tag != "an" && canDie && collision.gameObject.name != "pezzzo" && collision.gameObject.name != "pezzzo(1)" && collision.gameObject.name != "pezzzo(2)" && collision.gameObject.name != "pezzzo(3)" && collision.gameObject.name != "collider")
         {
             Debug.Log("я здох");
-            Destroy(gameObject);
+            if(canDie)
+            {
+                StartCoroutine(die());
+            }
         }
+    }
+  IEnumerator die()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Destroy(gameObject);
     }
 }

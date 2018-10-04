@@ -5,16 +5,26 @@ using UnityEngine;
 public class shot : MonoBehaviour {
     [SerializeField] private float f;
     [SerializeField] private GameObject bullet;
-    private bool canShoot = true;
+    private bool canShoot = false;
     [SerializeField] public int direction = 0;
     // Use this for initialization
 	void Start () {
-		
+        StartCoroutine(Starti());	
 	}
-	
+	IEnumerator Starti()
+    {
+        yield return new WaitForSeconds(2);
+        canShoot = true;
+    }
+    
 	// Update is called once per frame
 	void FixedUpdate ()
     {
+        if(person.life < 1)
+        {
+            StartCoroutine(Starti());
+            canShoot = false;
+        }
     if(canShoot)
         {
             StartCoroutine(Timer());

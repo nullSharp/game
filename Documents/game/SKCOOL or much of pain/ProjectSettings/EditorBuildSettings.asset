@@ -8,3 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/legendofnoops.unity
     guid: 72325a69932baf14e9847faea935ef67
+  - enabled: 1
+    path: Assets/level2.unity
+    guid: 909bc219779cbc444984f5765a544983

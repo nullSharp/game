@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class animate : MonoBehaviour {
-    private bool canShoot = true;
+    private bool canShoot = false;
     // Use this for initialization
 	void Start () {
-     
+        StartCoroutine(Starting());
     }
 	
 	// Update is called once per frame
@@ -17,6 +17,11 @@ public class animate : MonoBehaviour {
             StartCoroutine(Timer());
         }
 	}
+    IEnumerator Starting()
+    {
+        yield return new WaitForSeconds(2);
+        canShoot = true;
+    }
     IEnumerator Timer()
     {
         canShoot = false;

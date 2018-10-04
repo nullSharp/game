@@ -22,6 +22,18 @@ TagManager:
   - lever
   - platform
   - hp
+  - electric
+  - t1
+  - r2
+  - t2
+  - water
+  - electricwater
+  - down
+  - red
+  - fiolet
+  - cannotjump
+  - Bomb
+  - DRAGON_BALL
   layers:
   - Default
   - TransparentFX

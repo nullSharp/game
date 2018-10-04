@@ -19,13 +19,8 @@ public class shoti : MonoBehaviour {
     {
         if (collision.gameObject.tag != null)
         {
-            StartCoroutine(Timer());
+            Destroy(gameObject);
         }
     }
-    IEnumerator Timer()
-    {
-        canDie = false;
-        yield return new WaitForSeconds(0.5f);
-        Destroy(gameObject);
-    }
+ 
 }

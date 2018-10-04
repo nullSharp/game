@@ -34,7 +34,7 @@ public class collider : MonoBehaviour {
     IEnumerator Timer()
     {
         f = false;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
         platform.tag = "nothing";
     }
 }

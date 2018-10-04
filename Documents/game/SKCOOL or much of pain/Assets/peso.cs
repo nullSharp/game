@@ -13,6 +13,10 @@ public class peso : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.position = mastir.transform.position;
+        if(mastir == null)
+        {
+            Destroy(gameObject);
+        }
 	}
     private void OnTriggerEnter2D(Collider2D collision)
     {

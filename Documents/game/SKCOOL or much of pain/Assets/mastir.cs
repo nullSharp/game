@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class mastir : MonoBehaviour {
+    public Transform empty_trigger;
+    public LayerMask ground;
+    private float groundRadius = 0.2f;
+    public GameObject bomb;
     private Vector2 point;
     private bool isGround = false;
     public Rigidbody2D rigidbody;
     private bool f = true;
     public SpriteRenderer sprite;
-    public int life = 3;
+    public float life = 3;
     private int direction, speed;
     private bool canChange = true;
     public GameObject player;
@@ -21,10 +25,17 @@ public class mastir : MonoBehaviour {
         sprite = GetComponent<SpriteRenderer>();
         rigidbody = GetComponent<Rigidbody2D>();
     }
-	
-	// Update is called once per frame
-	void Update ()
+    private void FixedUpdate()
     {
+        isGround = Physics2D.OverlapCircle(empty_trigger.position, groundRadius,ground);
+    }
+    // Update is called once per frame
+    void Update ()
+    {
+        if(kristall.getSkill)
+        {
+            life += 0.001f;
+        }
 	if(canChange && !peso.attack)
         {
             direction = Random.Range(1, 3);
@@ -49,6 +60,7 @@ public class mastir : MonoBehaviour {
         {
             person.mana += 1f;
             person.achki_tupastiy += 2f + Manager.achkitupastiy_per_second;
+            Instantiate(bomb, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     if(peso.attack)
@@ -100,14 +112,6 @@ public class mastir : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-      if(collision.gameObject.tag != null)
-        {
-            isGround = true;
-        }
-      else
-        {
-            isGround = false;
-        }
         if (collision.gameObject.tag == "Death")
         {
             life = 0;

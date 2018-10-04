@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class camerascript : MonoBehaviour {
     public Transform player;
+
     private Vector3 playerpos;
+   
 	// Use this for initialization
 	void Start () {
         playerpos = new Vector3(player.position.x, player.position.y, -10);
